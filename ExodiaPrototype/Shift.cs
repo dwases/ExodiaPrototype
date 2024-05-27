@@ -10,5 +10,6 @@ namespace ExodiaPrototype
     {
         public TimeOnly GodzinaRozpoczecia { get; set; }
         public TimeOnly GodzinaUkonczenia { get; set; }
+        public Pracownik pracownik { get; set; }
     }
 }

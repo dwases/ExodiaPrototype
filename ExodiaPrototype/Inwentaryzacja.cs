@@ -12,6 +12,7 @@ namespace ExodiaPrototype
         public Polprodukty WartoscNaStanie { get; set; }
         public Polprodukty Zuzycie { get; set; }
         public Polprodukty StanDniaPoprzedniego { get; set; }
+        public Kierownik kierownik { get; set; }
         public void CreateListaStraty()
         {
 

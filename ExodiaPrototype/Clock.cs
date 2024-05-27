@@ -9,6 +9,7 @@ namespace ExodiaPrototype
     public class Clock
     {
         public Schedule Grafik { get; set; }
+        public List<Odbicie> odbicia = new List<Odbicie>();
         public void GenerujRaport()
         {
 

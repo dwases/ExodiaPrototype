@@ -11,5 +11,6 @@ namespace ExodiaPrototype
         public TimeOnly Godzina { get; set; }
         public string Typ { get; set; }
         public DateOnly Data { get; set; }
+        public Pracownik pracownik { get; set; }
     }
 }
