@@ -10,13 +10,20 @@ namespace ExodiaPrototype
     {
         public List<Szkolenie> szkolenia = new List<Szkolenie>();
         public Kierownik Author { get; set; }
-        public void ViewSzkolenia()
+        public string ViewSzkolenia(Kierownik kierownik)
         {
-
+            result = "";
+            result = result + "\nWykaz szkolen:\n";
+            for(int i = 0; i < szkolenia.Count(); i++)
+            {
+                result = result + kierownik.ZobaczSzkolenie(szkolenia[i]);
+                result = result + "\n";
+            }
+            return result;
         }
         public void AddSzkolenie(Szkolenie szkolenie)
         {
-
+            szkolenia.Add(szkolenie);
         }
     }
 }

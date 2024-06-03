@@ -33,9 +33,27 @@ namespace ExodiaPrototype
         {
 
         }
-        public void ZobaczSzkolenie()
+        public string ZobaczSzkolenie(Szkolenie szkolenie)
         {
-
+            string result = "";
+            result = result + "Dane szkolenia:\n";
+            result = result + "Godzina rozpoczecia: ";
+            result = result + szkolenie.GodzinaRozpoczecia.ToString();
+            result = result + "\nGodzina zakonczenia: ";
+            result = result + szkolenie.GodzinaUkonczenia.ToString();
+            result = result + "\nStatus: ";
+            result = result + szkolenie.Status;
+            result = result + "\nSzkolony: ";
+            result = result + szkolenie.Szkolony.Imie;
+            result = result + " ";
+            result = result + szkolenie.Szkolony.Nazwisko;
+            result = result + "\nInstruktor: ";
+            result = result + szkolenie.Instruktor.Imie;
+            result = result + " ";
+            result = result + szkolenie.Instruktor.Nazwisko;
+            result = result + "\nSzczegoly:\n";
+            result = result + szkolenie.Details;
+            return result;
         }
         public void ZobaczRaport()
         {
