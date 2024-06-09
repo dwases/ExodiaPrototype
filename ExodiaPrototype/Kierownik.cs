@@ -8,9 +8,14 @@ namespace ExodiaPrototype
 {
     public class Kierownik : Pracownik
     {
-        public void AddSchedule(TimeOnly GodzinaRozpoczecia, TimeOnly GodzinaUkonczenia, string Status, string Details, Pracownik szkolony, Pracownik Instruktor)
+        public void AddSchedule()
         {
-            //tutaj bedzie wywolanie konstruktora szkolenia
+            
+        }
+        public Szkolenie AddSzkolenie(TimeOnly GodzinaRozpoczecia, TimeOnly GodzinaUkonczenia, string Status, string Details, Pracownik szkolony, Pracownik Instruktor)
+        {
+            Szkolenie s = new Szkolenie(GodzinaRozpoczecia, GodzinaUkonczenia, Status, Details, szkolony, Instruktor);
+            return s;
         }
         public void PrzeprowadzInwentoryzacje()
         {

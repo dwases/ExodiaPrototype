@@ -12,7 +12,7 @@ namespace ExodiaPrototype
         public Kierownik Author { get; set; }
         public string ViewSzkolenia(Kierownik kierownik)
         {
-            result = "";
+            var result = "";
             result = result + "\nWykaz szkolen:\n";
             for(int i = 0; i < szkolenia.Count(); i++)
             {
@@ -24,6 +24,10 @@ namespace ExodiaPrototype
         public void AddSzkolenie(Szkolenie szkolenie)
         {
             szkolenia.Add(szkolenie);
+        }
+        public Szkolenia(Kierownik kierownik)
+        {
+            Author = kierownik;
         }
     }
 }

@@ -8,26 +8,59 @@ namespace ExodiaPrototype
 {
     public class Pracownik
     {
+        public Pracownik(string imie, string nazwisko, float placa, bool isInstructor, int id)
+        {
+            Imie = imie;
+            Nazwisko = nazwisko;
+            Placa = placa;
+            IsInstructor = isInstructor;
+            Id = id;
+        }
+
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public float Placa { get; set; }
         public bool IsInstructor { get; set; }
         public int Id { get; set; }
-        public void AddOrder()
+        //nazwy ponizszych 2 funkcji moga byc mylace, ale pierwsza tworzy zamowienie, a druga dodaje je do listy zamowien
+        public Order AddOrder(Pracownik pracownik, int pracownikID, Status statusy)
         {
-
+            Order order = new Order(pracownik, pracownikID, statusy);
+            return order;
         }
-        public void PlaceOrder() 
+        public void PlaceOrder(List<Order> orders, Order order) 
         {
-
+            orders.Add(order);
         }
-        public void ViewActiveOrders()
+        public string ViewActiveOrders(List<Order> orders)
         {
-
+            var result = "All active orders:";
+            int i = 0;
+            foreach (var order in orders)
+            {
+                if (order.Statusy != Status.W_Trakcie_Realizacji)
+                {
+                    continue;
+                }
+                i++;
+                result = result + "\nl.p.: ";
+                result = result + i.ToString();
+                result = result + "\nID pracownika: ";
+                result = result + order.PracownikID.ToString();
+                result = result + "\nSklad zamowienia: ";
+                foreach (var para in order.SkladZamowienia)
+                {
+                    result = result + para.Produkt.ProductName;
+                    result = result + " x ";
+                    result = result + para.Liczba.ToString();
+                    result = result + "\n";
+                }
+            }
+            return result;
         }
-        public void FinalizeOrder() 
+        public void FinalizeOrder(Order order) 
         {
-
+            order.Statusy = Status.Zrealizowane;
         }
         public void ViewSchedule()
         {

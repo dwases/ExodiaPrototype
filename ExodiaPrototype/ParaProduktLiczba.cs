@@ -10,5 +10,10 @@ namespace ExodiaPrototype
     {
         public int Liczba { get; set; }
         public Product Produkt { get; set; }
+        public ParaProduktLiczba(int liczba, Product produkt)
+        {
+            Liczba = liczba;
+            Produkt = produkt;
+        }
     }
 }
