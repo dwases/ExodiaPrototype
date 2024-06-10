@@ -10,6 +10,12 @@ namespace ExodiaPrototype
     {
         public TimeOnly GodzinaRozpoczecia { get; set; }
         public TimeOnly GodzinaUkonczenia { get; set; }
-        public Pracownik pracownik { get; set; }
+
+        public Shift(TimeOnly godzinaRozpoczecia, TimeOnly godzinaUkonczenia)
+        {
+            GodzinaRozpoczecia = godzinaRozpoczecia;
+            GodzinaUkonczenia = godzinaUkonczenia;
+        }
+
     }
 }

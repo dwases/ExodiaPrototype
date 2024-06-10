@@ -15,6 +15,7 @@ namespace ExodiaPrototype
             Placa = placa;
             IsInstructor = isInstructor;
             Id = id;
+            grafik = null;
         }
 
         public string Imie { get; set; }
@@ -22,13 +23,15 @@ namespace ExodiaPrototype
         public float Placa { get; set; }
         public bool IsInstructor { get; set; }
         public int Id { get; set; }
+
+        public Schedule? grafik;
         //nazwy ponizszych 2 funkcji moga byc mylace, ale pierwsza tworzy zamowienie, a druga dodaje je do listy zamowien
         public Order AddOrder(Pracownik pracownik, int pracownikID, Status statusy)
         {
             Order order = new Order(pracownik, pracownikID, statusy);
             return order;
         }
-        public void PlaceOrder(List<Order> orders, Order order) 
+        public void PlaceOrder(List<Order> orders, Order order)
         {
             orders.Add(order);
         }
@@ -58,13 +61,18 @@ namespace ExodiaPrototype
             }
             return result;
         }
-        public void FinalizeOrder(Order order) 
+        public void FinalizeOrder(Order order)
         {
             order.Statusy = Status.Zrealizowane;
         }
-        public void ViewSchedule()
+        public string ViewSchedule()
         {
-
+            string result = "Grafik pracownika o id " + this.Id + ":\n";
+            for (int i = 0; i < grafik.days.Count; i++)
+            {
+                result += grafik.days[i].id + "poczatek pracy: " + grafik.days[i].shifts[0].GodzinaRozpoczecia + ", koniec pracy: " + grafik.days[i].shifts[0].GodzinaUkonczenia + "\n";
+            }
+            return result;
         }
         public string ZobaczSzkolenie(Szkolenie szkolenie)
         {
