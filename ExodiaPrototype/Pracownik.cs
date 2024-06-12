@@ -1,4 +1,8 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ExodiaPrototype
 {
@@ -63,17 +67,12 @@ namespace ExodiaPrototype
         }
         public string ViewSchedule()
         {
-            if (grafik != null)
+            string result = "Grafik pracownika o id " + this.Id + ":\n";
+            for (int i = 0; i < grafik.days.Count; i++)
             {
-                string result = "Grafik pracownika o id " + this.Id + ":\n";
-                for (int i = 0; i < grafik.days.Count; i++)
-                {
-                    for (int j = 0; j < grafik.days[i].shifts.Count; j++)
-                        result += grafik.days[i].id + "poczatek pracy: " + grafik.days[i].shifts[j].GodzinaRozpoczecia + ", koniec pracy: " + grafik.days[i].shifts[j].GodzinaUkonczenia + "\n";
-                }
-                return result;
+                result += grafik.days[i].id + "poczatek pracy: " + grafik.days[i].shifts[0].GodzinaRozpoczecia + ", koniec pracy: " + grafik.days[i].shifts[0].GodzinaUkonczenia + "\n";
             }
-            return "Pracownik nie ma grafiku!!!";
+            return result;
         }
         public string ZobaczSzkolenie(Szkolenie szkolenie)
         {
