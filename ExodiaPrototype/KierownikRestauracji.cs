@@ -8,6 +8,11 @@ namespace ExodiaPrototype
 {
     public class KierownikRestauracji : Kierownik
     {
+        public KierownikRestauracji(string imie, string nazwisko, float placa, bool isInstructor, int id) : base(imie, nazwisko, placa, isInstructor, id)
+        {
+
+        }
+
         public void ZobaczRaport()
         {
 
