@@ -33,9 +33,20 @@ namespace ExodiaPrototype
             Szkolenie s = new Szkolenie(GodzinaRozpoczecia, GodzinaUkonczenia, Status, Details, szkolony, Instruktor);
             return s;
         }
-        public void PrzeprowadzInwentoryzacje()
+        public void PrzeprowadzInwentaryzacje(List<Polprodukt> stanDniaPoprzedniego, List<Polprodukt> aktualnyStan)
         {
+            var inwentaryzacja = new Inwentaryzacja
+            {
+                StanDniaPoprzedniego = new Polprodukty { polprodukty = stanDniaPoprzedniego },
+                WartoscNaStanie = new Polprodukty { polprodukty = aktualnyStan }
+            };
 
+            inwentaryzacja.CreateListaStraty();
+            inwentaryzacja.CreateWartoscNaStanie();
+            inwentaryzacja.CreateZuzycie();
+
+            string raport = inwentaryzacja.GenerujRaport();
+            Console.WriteLine(raport);
         }
     }
 }

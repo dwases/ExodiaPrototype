@@ -64,3 +64,22 @@ lista.DodajPracownika(instruktor);
 
     Console.WriteLine("Test szkolen(instruktor):");
     Console.WriteLine(instruktor.ZobaczSzkolenie(szkolenie));
+
+// Przykładowe dane dla inwentaryzacji
+List<Polprodukt> stanDniaPoprzedniego = new List<Polprodukt>
+            {
+                new Polprodukt { Nazwa = "Kotlet", Ilosc = 100 },
+                new Polprodukt { Nazwa = "Frytki", Ilosc = 200 },
+                new Polprodukt { Nazwa = "Napoje", Ilosc = 150 }
+            };
+
+List<Polprodukt> aktualnyStan = new List<Polprodukt>
+            {
+                new Polprodukt { Nazwa = "Kotlet", Ilosc = 80 },
+                new Polprodukt { Nazwa = "Frytki", Ilosc = 170 },
+                new Polprodukt { Nazwa = "Napoje", Ilosc = 140 }
+            };
+
+// Przeprowadzenie testowe inwentaryzacji
+kierownik.PrzeprowadzInwentaryzacje(stanDniaPoprzedniego, aktualnyStan);
+        
