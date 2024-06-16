@@ -14,7 +14,7 @@ namespace ExodiaPrototype
         {
             var result = "";
             result = result + "\nWykaz szkolen:\n";
-            for(int i = 0; i < szkolenia.Count(); i++)
+            for (int i = 0; i < szkolenia.Count(); i++)
             {
                 result = result + kierownik.ZobaczSzkolenie(szkolenia[i]);
                 result = result + "\n";

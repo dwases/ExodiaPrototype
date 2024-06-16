@@ -30,6 +30,7 @@ namespace ExodiaPrototype
                 days[day_id].add_shift(start_time, end_time);
             }
             catch {
+                Console.WriteLine("Shit");
                 return -1;
             }
             return 0;

@@ -10,7 +10,7 @@ namespace ExodiaPrototype
 
     public class Kierownik : Pracownik
     {
-        public Kierownik(string imie, string nazwisko, float placa, bool isInstructor, int id) : base(imie, nazwisko, placa,isInstructor,id)
+        public Kierownik(string imie, string nazwisko, float placa, bool isInstructor, int id) : base(imie, nazwisko, placa, isInstructor, id)
         {
             Imie = imie;
             Nazwisko = nazwisko;
@@ -19,12 +19,12 @@ namespace ExodiaPrototype
             Id = id;
             grafik = null;
         }
-        public Schedule AddSchedule(int liczba_dni, Pracownik p, Kierownik k, List<List<TimeOnly>> hours)
+        public Schedule AddSchedule(int liczba_dni, Pracownik p, Kierownik k, List<(TimeOnly Start, TimeOnly End)> hours)
         {
             Schedule grafik = new Schedule(liczba_dni, p, k);
-            for(int i = 0; i < hours.Count(); i++)
+            for (int i = 0; i < hours.Count(); i++)
             {
-                grafik.add_Day(i + 1, hours[i][0], hours[i][1]);
+                grafik.add_Day(i, hours[i].Start, hours[i].End);
             }
             return grafik;
         }

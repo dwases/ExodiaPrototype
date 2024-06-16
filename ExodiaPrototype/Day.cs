@@ -8,13 +8,14 @@ namespace ExodiaPrototype
 {
     public class Day
     {
-        public List<Shift> shifts = new List<Shift>();
+        public List<Shift> shifts;
 
         public int id { get; set; }
 
         public void add_shift(TimeOnly start, TimeOnly end)
         {
-            shifts.Add(new Shift(start, end));
+            Shift zmiana = new Shift(start, end);
+            shifts.Add(zmiana);
         }
         public void remove_shifts()
         {
@@ -23,7 +24,8 @@ namespace ExodiaPrototype
 
         public Day(int id)
         {
-        this.id = id; 
+        this.id = id;
+        this.shifts = new List<Shift>();
         }
     }
 }

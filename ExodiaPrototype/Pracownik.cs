@@ -70,8 +70,11 @@ namespace ExodiaPrototype
             string result = "Grafik pracownika o id " + this.Id + ":\n";
             for (int i = 0; i < grafik.days.Count; i++)
             {
-                result += grafik.days[i].id + "poczatek pracy: " + grafik.days[i].shifts[0].GodzinaRozpoczecia + ", koniec pracy: " + grafik.days[i].shifts[0].GodzinaUkonczenia + "\n";
-            }
+                for(int j = 0; j < grafik.days[i].shifts.Count; j++)
+                {
+                    result += grafik.days[i].id + ". poczatek pracy: " + grafik.days[i].shifts[j].GodzinaRozpoczecia.ToString("HH:mm") + ", koniec pracy: " + grafik.days[i].shifts[j].GodzinaUkonczenia.ToString("HH:mm") + "\n";
+                }
+            } 
             return result;
         }
         public string ZobaczSzkolenie(Szkolenie szkolenie)
